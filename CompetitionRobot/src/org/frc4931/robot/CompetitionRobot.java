@@ -5,6 +5,7 @@ import org.frc4931.robot.command.TwoState.State;
 import org.frc4931.robot.command.drive.PIDDriveInterface;
 import org.frc4931.robot.command.drive.PIDTurnInterface;
 import org.frc4931.robot.command.groups.DriveAndScore;
+import org.frc4931.robot.command.net.AddCommandAfterDelay;
 import org.frc4931.robot.command.pneumatics.Pressurize;
 import org.frc4931.robot.command.roller.RollIn;
 import org.frc4931.robot.command.roller.RollOut;
@@ -18,7 +19,6 @@ import org.frc4931.robot.subsystems.Roller;
 import org.frc4931.robot.subsystems.RollerArm;
 import org.frc4931.zach.drive.ContinuousMotor;
 import org.frc4931.zach.drive.LimitedMotor;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.Ultrasonic;
@@ -134,10 +134,10 @@ public class CompetitionRobot extends IterativeRobot{
 		SmartDashboard.putNumber("Max Delta 1", 1.0);
 		SmartDashboard.putNumber("Max Delta 2", 0.1);
 		SmartDashboard.putNumber("Max Delta 3", 0.01);
-//		Scheduler.getInstance().add(new SetState(Subsystems.nets.leftNet, State.CLOSED, Nets.CLOSE_SPEED));
+		Scheduler.getInstance().add(new SetState(Subsystems.nets.leftNet, State.CLOSED, Nets.CLOSE_SPEED));
 		
-//		Scheduler.getInstance().add(new AddCommandAfterDelay
-//				(new SetState(Subsystems.nets.rightNet, State.CLOSED, Nets.OPEN_SPEED),0.5));
+		Scheduler.getInstance().add(new AddCommandAfterDelay
+				(new SetState(Subsystems.nets.rightNet, State.CLOSED, Nets.OPEN_SPEED),0.5));
 	}
 	
 	public void smartDashboardInit(){

@@ -65,10 +65,11 @@ public class Toggle extends CommandBase{
 		}else if(initialState.equals(State.TWO)){
 			targetState = State.ONE;
 		}else{
+		    targetState = State.UNKNOWN;
 			CompetitionRobot.output("<"+object.getName()+"> state is unknown.");
 			cancel();
 		}
-		CompetitionRobot.output(initialState.toString()+"Target state for "+object.getName()+" is "+targetState.toString());
+		CompetitionRobot.output(initialState+"Target state for "+object.getName()+" is "+targetState);
 		super.initialize();
 	}
 	
